@@ -26,7 +26,7 @@ class ParticipantController extends Controller
             }
 
             $searchemail = Participants::where('email', $request->email)->first();
-            if($searchemail && $searchemail->event->end_time > $request->event()->start_time){
+            if($searchemail && $searchemail->event->end_time >= $request->event()->start_time){
             return response()->json(['error' => 'Participant has a scheduling conflict with another event'], 409);
         }
             $participant = Participants::create([

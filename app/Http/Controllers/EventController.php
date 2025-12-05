@@ -10,8 +10,6 @@ class EventController extends Controller
 {
     public function registerevent(Request $request)
     {
-
-
         try {
             $validated= $request->validate([
             'title' => 'required|string|max:255',
